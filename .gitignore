@@ -1,0 +1,15 @@
+Icon?
+Icon
+.vscode/
+.DS_Store
+__pycache__
+.autohidefiles
+.env
+calendar.txt
+Test.py
+Test.ipynb
+Test/
+Test/Test.pde
+HTML_Test/
+react-test/
+CLI_Test/
