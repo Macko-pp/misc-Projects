@@ -8,10 +8,9 @@ text = [
     "You have been very naughty, my boy...",
     "We do not tolerate this, boy...",
     "We are on our way now, boy...",
-    "Be carefull, boy...",
+    "Be careful, boy...",
     "Remember...",
     "We are ALWAYS watching...",
-    "〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠〠"
 ]
 
 os.system("sleep 1")
