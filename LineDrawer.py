@@ -115,10 +115,10 @@ with open("../Desktop/Draw.txt", 'w') as f:
 x0 = int(input("x0: "))
 y0 = int(input("y0: "))
 
-xy0 = (x0 * 50) + y0
+xy0 = ((y0 - 1) * 50) + x0
 
 newGrid = blankSquareGrid.replace("□", "■", xy0)
-newGrid = newGrid.replace("■", "□", xy0 - 1)
+newGrid = newGrid.replace("■", "□", (xy0 - 1))
 
 #DrawPoint-function--------------------------------------------------------------
 
@@ -126,24 +126,20 @@ def drawPoint(iter):
 	x = int(input("x" + str(iter) + ": "))
 	y = int(input("y" + str(iter) + ": "))
 
-	xy = (x * 50) + y
+	xy = ((y - 1) * 50) + (x - iter)
 
 	global newGrid
 
 	newGrid = newGrid.replace("□", str(iter), xy)
-	newGrid = newGrid.replace(str(iter), "□", xy - 1)
+	newGrid = newGrid.replace(str(iter), "□", (xy - 1))
 
 	newGrid = newGrid.replace(str(iter), "■")
 
 	return newGrid
 
-#Draw-point-2--------------------------------------------------------------------
+#Draw-points---------------------------------------------------------------------
 
 drawPoint(1)
-
-#Draw-point-3--------------------------------------------------------------------
-
-drawPoint(2)
 
 #Write-to file-------------------------------------------------------------------
 
