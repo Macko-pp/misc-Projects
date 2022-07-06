@@ -1,4 +1,4 @@
-import os
+from bresenham import bresenham
 
 blankSquareGrid = '''
 □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □ □
@@ -110,21 +110,26 @@ blank0Grid = '''
 with open("../Desktop/Draw.txt", 'w') as f:
 	f.write(blankSquareGrid)
 
-#Draw-point-1--------------------------------------------------------------------
+#Draw0point-function-------------------------------------------------------------
 
-x0 = int(input("x0: "))
-y0 = int(input("y0: "))
+def draw0Point(x, y):
+	# x0 = int(input("x0: "))
+	# y0 = int(input("y0: "))
 
-xy0 = ((y0 - 1) * 50) + x0
+	xy = ((y - 1) * 50) + x
 
-newGrid = blankSquareGrid.replace("□", "■", xy0)
-newGrid = newGrid.replace("■", "□", (xy0 - 1))
+	global newGrid
 
-#DrawPoint-function--------------------------------------------------------------
+	newGrid = blankSquareGrid.replace("□", "■", xy)
+	newGrid = newGrid.replace("■", "□", (xy - 1))
 
-def drawPoint(iter):
-	x = int(input("x" + str(iter) + ": "))
-	y = int(input("y" + str(iter) + ": "))
+	# return newGrid
+
+#drawPoint-function--------------------------------------------------------------
+
+def drawPoint(x, y, iter):
+	# x = int(input(f'x{iter}": '))
+	# y = int(input(f'y{iter}": '))
 
 	xy = ((y - 1) * 50) + (x - iter)
 
@@ -135,11 +140,35 @@ def drawPoint(iter):
 
 	newGrid = newGrid.replace(str(iter), "■")
 
-	return newGrid
+	# return newGrid
 
-#Draw-points---------------------------------------------------------------------
+#drawLine-function---------------------------------------------------------------
 
-drawPoint(1)
+def drawLine(x_start, y_start, x_end, y_end):
+	dy = y_end - y_start
+	dx = x_end - x_start
+
+	error = 2*dy - dx
+	y = y_start
+	for x in range(x_start, x_end + 1):
+		print(f'{x} - {y}')
+
+		if "newGrid" in globals():
+			drawPoint(x, y, x - x_start)
+		else:
+			draw0Point(x, y)
+
+		if error >= 0:
+			y += 1
+			error -= 2*dx
+
+		error += 2*dy
+
+#Draw-Line-----------------------------------------------------------------------
+
+# drawLine(35, 45, 1, 48)
+
+bresenham(45, 3, 5, 10)
 
 #Write-to file-------------------------------------------------------------------
 
@@ -147,4 +176,3 @@ print(newGrid)
 
 with open("../Desktop/Draw.txt", 'w') as f:
 	f.write(newGrid)
-	
