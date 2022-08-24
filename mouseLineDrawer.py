@@ -2,7 +2,7 @@ import pyautogui
 import os
 import random
 
-os.system("sleep 2")
+os.system("sleep 1")
 
 # for i in range(1, 50):
 # 	ranX1 = random.randrange(62, 1439)
@@ -14,7 +14,7 @@ os.system("sleep 2")
 
 def drawLine(x, y, x1, y1):
 	pyautogui.mouseDown(x, y)
-	pyautogui.moveTo(x1, y1, 0)
+	# pyautogui.moveTo(x1, y1, 0.2)
 	pyautogui.mouseUp(x1, y1)
 
 
@@ -43,8 +43,8 @@ drawLine(700, 569, 617, 521)
 drawLine(617, 521, 617, 428)
 drawLine(617, 428, 699, 379)
 
-drawLine(862, 383, 937, 386)
-drawLine(937, 386, 993, 438)
+drawLine(862, 383, 937, 384)
+drawLine(937, 384, 993, 438)
 drawLine(993, 438, 994, 514)
 drawLine(994, 514, 939, 569)
 drawLine(939, 569, 861, 569)
