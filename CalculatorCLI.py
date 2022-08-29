@@ -347,6 +347,20 @@ Use the vars as the numbers to be modified, write the modifier as one of the fol
         return '''{} {}°C in °F is {}°F 
         {}'''.format(Separator, var1, solution, Separator2)
 
+    # Kg-Lb---------------------------------------------------------------------
+
+    elif modifier == "Kg-Lb":
+        solution = var1 * 0.45359237
+        return '''{} {}kg in lb is {}lb
+        {}'''.format(Separator, var1, solution, Separator2)
+
+    # Lb-Kg---------------------------------------------------------------------
+
+    elif modifier == "Lb-Kg":
+        solution = var1 / 0.45359237
+        return '''{} {}lb in kg is {}kg
+        {}'''.format(Separator, var1, solution, Separator2)
+
     # Error---------------------------------------------------------------------
 
     else:
