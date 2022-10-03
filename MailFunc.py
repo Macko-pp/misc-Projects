@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-_EMAIL_ = os.getenv('EMAIL')
-_PASSWORD_ = os.getenv('PASSWORD')
+_EMAIL_ = os.getenv('EMAILBOT')
+_PASSWORD_ = os.getenv('PASSWORDBOT')
 
 def MailFunc(to, subject):
 	with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
